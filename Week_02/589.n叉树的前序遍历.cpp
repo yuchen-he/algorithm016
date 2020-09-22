@@ -27,17 +27,35 @@ public:
 
 class Solution {
 public:
-    vector<int> ret;
+    // vector<int> ret;
     vector<int> preorder(Node* root) {
-        if (root){
-            ret.push_back(root->val);
-            if ((root->children).size() != 0){
-                for(int i=0; i<(root->children).size(); i++){
-                    preorder(root->children[i]);
+        // 迭代解法(跟二叉树前序遍历的迭代算法一样)
+        stack<Node*> st;
+        vector<int> res;
+        st.push(root);
+        while (!st.empty()) {
+            Node* temp = st.top();
+            st.pop();
+            if (temp != NULL) {
+                res.push_back(temp->val);
+                vector<Node*> temp_ch = temp->children;
+                for (int i=temp_ch.size()-1; i>=0; i--) {
+                    st.push(temp_ch[i]);
                 }
             }
         }
-        return ret;
+        return res;
+
+        // 递归解法
+        // if (root){
+        //     ret.push_back(root->val);
+        //     if ((root->children).size() != 0){
+        //         for(int i=0; i<(root->children).size(); i++){
+        //             preorder(root->children[i]);
+        //         }
+        //     }
+        // }
+        // return ret;
     }
 };
 // @lc code=end
