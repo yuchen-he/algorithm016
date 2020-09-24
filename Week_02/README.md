@@ -1,6 +1,6 @@
 ## 学习笔记
 
-### 脑图（持续更新中）
+### 一、脑图（持续更新中）
 本周更新内容：
 - 二叉树遍历时，不同顺序的迭代关键代码，以及通用的代码模版
 - "code易错点": 记录C++和python编程时出现的一些语法错误
@@ -8,7 +8,15 @@
 ![脑图](../image/数据结构和算法.png)
 
 
-### 二叉树的遍历
+
+### 二、上课笔记
+![哈希表](../image/W2%20哈希表.jpg)
+![堆](../image/W2%20堆，二叉堆.jpg)
+![二叉堆操作](../image/W2%20二叉堆操作.jpg)
+
+
+
+### 三、二叉树的遍历
 1. Iterative solution using stack: O(n) time and O(n) space
 2. Recursive solution: O(n) time and O(n) space (function call stack == 递归时系统会自动调用栈) 
 3. Morris traversal: O(n) time and O(1) space
