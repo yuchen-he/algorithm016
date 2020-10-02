@@ -19,7 +19,7 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        # 自己想出来的解法: 找这一步与之前的联系，就是self.combine(i - 1, k - 1)中的每个元素都加上现在的i
+        # 自己想出来的数学归纳法: 找n和n-1的结果的联系 -> self.combine(i - 1, k - 1)中的每个元素都加上现在的i
         res = []
         # terminator
         if k == 0:
