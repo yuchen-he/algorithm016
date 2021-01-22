@@ -35,6 +35,12 @@ public:
         head->next->next = head;     // 关键点：让该层的head指向元素的下一个元素反指回它的前一个元素
         head->next = NULL;
         return cur;
+
+        // 错误解法
+        // ListNode* curr = reverseList(head->next);
+        // head->next = curr->next;
+        // curr->next = head;
+        // return head;       // 这个地方在最后会返回节点1（应该要返回5）
     }
 };
 

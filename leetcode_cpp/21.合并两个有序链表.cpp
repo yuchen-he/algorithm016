@@ -19,6 +19,8 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         // 递归解法（迭代解法在python）
+        // 下面这个题解很便于理解链表中的递归问题
+        // https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/yi-kan-jiu-hui-yi-xie-jiu-fei-xiang-jie-di-gui-by-/
 
         // terminator
         if (l1 == NULL) return l2;
