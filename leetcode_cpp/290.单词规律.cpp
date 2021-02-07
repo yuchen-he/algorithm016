@@ -8,6 +8,7 @@
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
+        // 重点: 使用stringstream类可以把一个带空格的长单词串s自动分隔成N个单词
         // https://leetcode-cn.com/problems/word-pattern/solution/cjian-ji-dai-ma-shuang-bai-7xing-by-orangeman/
         unordered_map<char, string> m1;
         unordered_map<string, char> m2; 

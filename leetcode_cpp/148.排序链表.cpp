@@ -32,43 +32,50 @@ public:
 
     ListNode* sortList(ListNode* head) {
         /**
+         * 解法三: 无递归，自底向上，直接合并 -> 空间复杂度O(1)
+         * 因为归并有cut和merge两个过程，
+        */
+        // if 
+
+
+        /**
          * 解法二: 优化以下两点（但分割链表时依然用到了递归，所以仍然是O(n)空间复杂度）
          * 1. 找链表的中点: 快慢指针法
          * 2. merge操作: 迭代，利用pre节点（不使用递归从而优化空间复杂度）
         */
-        if (head == nullptr || head->next == nullptr) return head;
+        // if (head == nullptr || head->next == nullptr) return head;
 
-        // 优化方法: 快慢指针，快指针走两步慢指针走一步，最终慢指针即为中点
-        ListNode* slow = head;
-        ListNode* fast = head->next;
-        while (fast != nullptr && fast->next != nullptr) {
-            fast = fast->next->next;
-            slow = slow->next;
-        }
-        ListNode* mid = slow->next;
-        slow->next = nullptr;
+        // // 优化1: 快慢指针，快指针走两步慢指针走一步，最终慢指针即为中点
+        // ListNode* slow = head;
+        // ListNode* fast = head->next;
+        // while (fast != nullptr && fast->next != nullptr) {
+        //     fast = fast->next->next;
+        //     slow = slow->next;
+        // }
+        // ListNode* mid = slow->next;
+        // slow->next = nullptr;
 
-        // 分割。依然用到递归
-        ListNode* left = sortList(head);
-        ListNode* right = sortList(mid);
+        // // 分割。依然用到递归
+        // ListNode* left = sortList(head);
+        // ListNode* right = sortList(mid);
 
-        // merge。使用迭代而非递归（优化空间复杂度）
-        ListNode* pre = new ListNode(0);
-        ListNode* res = pre;   // res用于返回（因为下面的while中pre的位置需要一直变化）
-        while (left != nullptr && right != nullptr) {
-            if (left->val <= right->val) {
-                pre->next = left;
-                left = left->next;
-            }
-            else {
-                pre->next = right;
-                right = right->next;
-            }
-            pre = pre->next;
-        }
-        // 要注意！最后肯定有一边链表还有的，所以只需将pre指向剩下的链表头节点即可
-        pre->next = (left != nullptr) ? left : right;
-        return res->next;
+        // // 优化2: merge使用迭代而非递归（优化空间复杂度）
+        // ListNode* pre = new ListNode(0);
+        // ListNode* res = pre;   // res用于返回（因为下面的while中pre的位置需要一直变化）
+        // while (left != nullptr && right != nullptr) {
+        //     if (left->val <= right->val) {
+        //         pre->next = left;
+        //         left = left->next;
+        //     }
+        //     else {
+        //         pre->next = right;
+        //         right = right->next;
+        //     }
+        //     pre = pre->next;
+        // }
+        // // 要注意！最后肯定有一边链表还有的，所以只需将pre指向剩下的链表头节点即可
+        // pre->next = (left != nullptr) ? left : right;
+        // return res->next;
 
 
         /**
