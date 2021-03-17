@@ -16,13 +16,13 @@
  */
 class Solution {
 public:
-    bool helper(TreeNode* root, long long val_max, long long val_min) {
-        if (root == NULL) return true;
-        if (root->val >= val_max || root->val <= val_min) return false;
-        // 在递归调用左子树时，我们需要把上界 upper 改为 root.val，因为左子树里所有节点的值均小于它的根节点的值。
-        // 同理递归调用右子树时，我们需要把下界 lower 改为 root.val
-        return (helper(root->left, root->val, val_min) && helper(root->right, val_max, root->val));
-    }
+    // bool helper(TreeNode* root, long long val_max, long long val_min) {
+    //     if (root == NULL) return true;
+    //     if (root->val >= val_max || root->val <= val_min) return false;
+    //     // 在递归调用左子树时，我们需要把上界 upper 改为 root.val，因为左子树里所有节点的值均小于它的根节点的值。
+    //     // 同理递归调用右子树时，我们需要把下界 lower 改为 root.val
+    //     return (helper(root->left, root->val, val_min) && helper(root->right, val_max, root->val));
+    // }
     long long val_min = LONG_MIN;
     bool isValidBST(TreeNode* root) {
         // 解法二: 递归法（非中序遍历）
