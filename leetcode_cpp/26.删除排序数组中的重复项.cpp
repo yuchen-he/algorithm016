@@ -16,7 +16,7 @@ public:
         for(int i = 1; i < n; i++){
             if(nums[i] == nums[i-1]) count++;
             else nums[i-count] = nums[i];
-            }
+        }
         return n-count;
 
         // if (nums.size() == 0) return 0;

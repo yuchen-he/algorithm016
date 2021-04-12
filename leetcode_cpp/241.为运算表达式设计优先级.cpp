@@ -6,8 +6,17 @@
 
 // @lc code=start
 class Solution {
+private:
+    unordered_map<string, vector<int>> m;
+    
 public:
     vector<int> diffWaysToCompute(string expression) {
+        // 剪枝优化
+        // 利用hashmap: 储存“待计算字符串 - 所有可能的计算结果”的映射
+        if (m.count(expression) > 0) {
+            return m[expression];
+        }
+
         vector<int> res;
         int n = expression.size();
         int flag = 0;
@@ -38,6 +47,9 @@ public:
         if (flag == 0) {
             res.push_back(stoi(expression));
         }
+
+        // 把expression的所有可能计算结果添加到map中
+        m[expression] = res;
         return res;
     }
 };

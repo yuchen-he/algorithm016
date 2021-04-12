@@ -22,8 +22,8 @@ public:
             int b = i + 1;
             int c = nums.size() - 1;
 
-            if (nums[i] > 0) break;
-            if ((i > 0) && (nums[i] == nums[i-1])) continue;
+            if (nums[i] > 0) break;                             // 剪枝1
+            if ((i > 0) && (nums[i] == nums[i-1])) continue;    // 剪枝2
             while (b < c) {
                 int sum_three = nums[i] + nums[b] + nums[c];
                 if (sum_three == 0) {
