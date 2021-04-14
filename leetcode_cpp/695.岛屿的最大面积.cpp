@@ -13,7 +13,7 @@ public:
             return 0;
         }
         
-        // grid[i][j] == 1
+        // 确定了grid[i][j] == 1
         // process
         grid[i][j] = 0;
             
